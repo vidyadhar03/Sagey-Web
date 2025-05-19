@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-blue: 230, 240, 250;
+  --secondary-blue: 191, 223, 255;
+  --accent-blue: 167, 199, 231;
+  --text-primary: 51, 65, 85;
+  --text-secondary: 71, 85, 105;
+  --background: 255, 255, 255;
+}
+
+@layer base {
+  body {
+    color: rgb(var(--text-primary));
+    background: rgb(var(--background));
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+  
+  .glass-button {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-md 
+           hover:bg-white/90 transition-all duration-300;
+  }
+
+  .glass-input {
+    @apply bg-white/50 backdrop-blur-sm border border-white/20 shadow-sm
+           focus:bg-white/70 focus:border-accent-blue/50 transition-all duration-300;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: none;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: rgb(var(--accent-blue));
+  color: rgb(var(--text-primary));
+}
+
+/* Animations */
+@keyframes gentle-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+/* Glassmorphism utilities */
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-shadow {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
